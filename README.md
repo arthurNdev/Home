@@ -1,65 +1,100 @@
-<p align="center"> 
-  <img src="https://komarev.com/ghpvc/?username=arthurNdev&color=blue" alt="arthurNdev"> •  
-  <img alt="𝙶𝚒𝚝𝙷𝚞𝚋 𝚏𝚘𝚕𝚕𝚘𝚠𝚎𝚛𝚜" src="https://img.shields.io/github/followers/arthurNdev?label=Followers&style=social"> •   
-  <img src="https://img.shields.io/github/stars/arthurNdev?label=Stars" alt="𝚃𝚘𝚝𝚊𝚕 𝚂𝚝𝚊𝚛𝚜">
-</p>
+<div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Operator+Mono&size=37&duration=2800&pause=2000&color=FAFAFA&center=true&vCenter=true&width=940&height=50&lines=Hey%2C+I'm+Arthur+Welcome+to+my+Profile!" align="middle" alt="Hey, I'm Arthur Welcome to my Profile! animated typed out">
-<img  src="assests/borderseperator.gif">
+# Arthur · Data Analyst
 
+**Analista de Dados @ WSP Brasil · Rio de Janeiro**
 
+Transformo dados em decisões. Trabalho na interseção entre análise exploratória, automação de processos e visualização, com foco crescente em Machine Learning e Ciência de Dados.
 
-### Welcome to my GitHub! :grin:
-   
-#### Hello, my name is Arthur, I'm a student of information systems in Cruzeiro do Sul University, currently i'm focused on developing my skills in Data Science. I am currently Studying Python, SQL, Power BI and Microsoft Excel.
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/arthur-nina/)
+[![Email](https://img.shields.io/badge/Email-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:arthurnina.dev@gmail.com)
 
-## Status:
+</div>
 
-|![](http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=arthurNdev&theme=monokai)|![](http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=arthurNdev&theme=monokai&utcOffset=-3)|
+---
+
+## Sobre mim
+
+Sou um Analista de Dados com 2 anos de experiência na WSP Brasil, empresa líder global em consultoria de projetos ambientais e de engenharia, onde ocupei três cargos progressivos ao longo da minha trajetória.
+Atuo com automação de processos, análise estatística de resultados, modelagem de dados e construção de dashboards que apoiam decisões estratégicas e operacionais.
+
+Minha experiência passa por diversas áreas de negócio, como: financeiro, RH, departamento pessoal, engenharia civil, offshore, ambiental, social. Cada contexto exigiu uma forma diferente de analisar o dado e foi isso que me tornou um analista mais completo.
+
+Atualmente em transição ativa para Ciência de Dados — estudando estatística aplicada, Machine Learning e engenharia de features.
+
+---
+
+## Stack técnica
+
+### Linguagens & Bibliotecas
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white)
+![DAX](https://img.shields.io/badge/DAX-F2C811?style=flat-square&logo=powerbi&logoColor=black)
+
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-11557c?style=flat-square)
+![Seaborn](https://img.shields.io/badge/Seaborn-3e77a5?style=flat-square)
+![Scikit-learn](https://img.shields.io/badge/Scikit--learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)
+
+### Ferramentas & Plataformas
+
+![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=flat-square&logo=powerbi&logoColor=black)
+![Excel](https://img.shields.io/badge/Excel-217346?style=flat-square&logo=microsoftexcel&logoColor=white)
+![Power Automate](https://img.shields.io/badge/Power%20Automate-0066FF?style=flat-square&logo=microsoftpowerautomate&logoColor=white)
+![Power Apps](https://img.shields.io/badge/Power%20Apps-742774?style=flat-square&logo=microsoftpowerapps&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
+
+---
+
+## Habilidades
+
+| Área | O que faço |
 |---|---|
-<br> 
+| **Análise Exploratória** | Limpeza, transformação e investigação de datasets com Pandas e NumPy |
+| **Visualização de Dados** | Dashboards em Power BI (DAX + Power Query), gráficos analíticos com Matplotlib e Seaborn |
+| **Automação de Processos** | Fluxos no Power Automate e apps de dados no Power Apps |
+| **SQL & Modelagem** | Queries analíticas, agregações, joins, modelagem dimensional |
+| **Machine Learning** | Familiaridade com pipelines de classificação e regressão via Scikit-learn |
+| **Data Storytelling** | Comunicação de insights para públicos técnicos e não-técnicos |
+| **Controle de Versão** | Versionamento de código e colaboração com Git |
 
+---
 
-|![](https://github-readme-streak-stats.herokuapp.com/?user=arthurNdev&theme=monokai&hide_border=false)|![arthurNdev's Stats](https://github-readme-stats.vercel.app/api?username=arthurNdev&theme=monokai&show_icons=true&hide_border=true&count_private=true)
+## IAs que uso no meu fluxo de trabalho
+
+Utilizo ferramentas de IA como parte ativa do meu processo de análise, automação e aprendizado:
+
+| Ferramenta | Como uso |
 |---|---|
-<br>
+| **Claude (Anthropic)** | Análise de código, estruturação de raciocínio analítico, revisão de lógica em SQL e Python |
+| **ChatGPT (OpenAI)** | Prototipação rápida, geração de exemplos de código, pesquisa exploratória |
+| **GitHub Copilot** | Autocompletar e sugestões inline durante desenvolvimento |
+| **Perplexity** | Pesquisa técnica com fontes rastreáveis |
 
-![](http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=arthurNdev&theme=monokai)![](http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=arthurNdev&theme=monokai)
+---
 
-<h2><img src="https://media.giphy.com/media/mpM654sL8gJumwGmAn/giphy.gif" width="30px" height="30px"> Contacts:</h2>
+## Em aprendizado
 
-[<img src = "https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white">](https://www.instagram.com/ath.nina/)
-<a href = "mailto:arthurnina.dev@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
-<a id="twitter" href="https://twitter.com/ath_Nina">
-  <img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"/>
-</a>
- <a id="linkedin" href="https://www.linkedin.com/in/arthur-nina-767380280">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/>
-</a>
+Estudando para a minha transição para Ciência de Dados:
 
-<h2><img src="https://media.giphy.com/media/tZIxqCNZhC9YKasYf7/giphy.gif" width="35px" height="35px">Skills:</h2>
+- Estatística aplicada e inferência
+- Aprofundando Machine Learning com Scikit-learn
+- Google BigQuery
 
-<table align="center">
+---
 
-  <tr>
-    <td align="center" width="96">
-      <a href="#macropower-tech">
-        <img src="https://techstack-generator.vercel.app/python-icon.svg" alt="icon" width="65" height="65" />
-      </a>
-      <br>Python
-    </td>
-    <td align="center" width="96">
-      <a href="#git" >
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/1200px-Git_icon.svg.png" width="48" height="48" alt="Git" />
-      </a>
-      <br>Git
-    </td>
-    
-</tr>
+## Contato
 
-</table>
+Aberto a conversas sobre dados, projetos e oportunidades.
 
- 
- 
-  
-</div> <br>
+- **LinkedIn:** [https://www.linkedin.com/in/arthur-nina/](https://www.linkedin.com/in/arthur-nina/)
+- **E-mail:** arthurnina.dev@gmail.com
+- **Localização:** Rio de Janeiro, RJ — Brasil
+
+---
+
+<div align="center">
+  <sub>Atualizado em 2026</sub>
+</div>
