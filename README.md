@@ -1,6 +1,6 @@
 <div align="center">
 
-# Arthur · Data Analyst
+# Arthur Nina
 
 **Analista de Dados @ WSP Brasil · Rio de Janeiro**
 
