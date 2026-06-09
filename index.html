@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arthur Nina · Data Analyst</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, ::after, ::before {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --accent:       #2563eb;
+      --accent-light: #3b82f6;
+      --accent-dim:   #1d4ed8;
+      --accent-glow:  rgba(37, 99, 235, 0.15);
+      --accent-border:rgba(37, 99, 235, 0.25);
+      --bg:           #050508;
+      --bg-card:      #0e0e14;
+      --bg-chip:      #13131a;
+      --border:       #1e1e2a;
+      --border-hover: #2563eb;
+      --text-primary: #f0f0f8;
+      --text-muted:   #6b6b85;
+      --text-mid:     #a0a0be;
+      --mono:         'JetBrains Mono', monospace;
+      --sans:         'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--sans);
+      overflow-x: hidden;
+    }
+
+    /* ─── NOISE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      opacity: 0.4;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      padding: 1.1rem 2rem;
+      background: rgba(5, 5, 8, 0.82);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      width: 100%;
+      max-width: 1080px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .nav-logo span {
+      color: var(--accent-light);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent-light); }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 9rem 2rem 5rem;
+      position: relative;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 75% 55% at 50% 50%, #000 10%, transparent 80%);
+      opacity: 0.5;
+    }
+
+    /* blue ambient glow */
+    .hero-glow {
+      position: absolute;
+      top: 20%;
+      left: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(37,99,235,0.12) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--accent-light);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 1px;
+      background: var(--accent-light);
+    }
+
+    h1 {
+      font-family: var(--mono);
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 2rem;
+      color: var(--text-primary);
+    }
+
+    h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--accent-light) 0%, #60a5fa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--text-mid);
+      max-width: 560px;
+      line-height: 1.8;
+      margin-bottom: 2.8rem;
+    }
+
+    .hero-sub strong {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.7rem 1.4rem;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      font-weight: 500;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-light);
+      box-shadow: 0 4px 24px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent-light);
+    }
+
+    /* ─── DIVIDER ─── */
+    .divider-wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ─── SECTIONS ─── */
+    section {
+      padding: 5.5rem 2rem;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      color: var(--accent-light);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-family: var(--mono);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--text-primary);
+      margin-bottom: 3rem;
+      letter-spacing: -0.01em;
+    }
+
+    /* ─── SOBRE ─── */
+    .sobre-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+
+    .comp-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.75rem;
+      position: sticky;
+      top: 88px;
+    }
+
+    .comp-card-title {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--accent-light);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 1.4rem;
+    }
+
+    .comp-row {
+      display: flex;
+      gap: 0.8rem;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--text-mid);
+      line-height: 1.55;
+    }
+
+    .comp-row:last-child { border-bottom: none; }
+
+    .comp-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      margin-top: 0.6rem;
+      flex-shrink: 0;
+    }
+
+    .bio {
+      font-size: 0.93rem;
+      color: var(--text-mid);
+      line-height: 1.9;
+      margin-bottom: 2.5rem;
+    }
+
+    .bio strong {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .stack-label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--text-primary);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .chip {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      padding: 0.38rem 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      color: var(--text-mid);
+      background: var(--bg-chip);
+      letter-spacing: 0.04em;
+      transition: all 0.2s;
+    }
+
+    .chip:hover {
+      border-color: var(--accent);
+      color: var(--accent-light);
+    }
+
+    /* ─── PROJETOS ─── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px;
+      padding: 2rem;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      position: relative;
+      transition: all 0.28s ease;
+      box-shadow: 0 0 28px rgba(37, 99, 235, 0.05);
+      overflow: hidden;
+    }
+
+    .project-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(37,99,235,0.06), transparent 60%);
+      pointer-events: none;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent-light);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 36px rgba(37, 99, 235, 0.18);
+    }
+
+    .project-card:hover .proj-arrow {
+      opacity: 1;
+      transform: translate(3px, -3px);
+    }
+
+    .proj-arrow {
+      position: absolute;
+      top: 1.4rem;
+      right: 1.4rem;
+      font-size: 1rem;
+      color: var(--accent-light);
+      opacity: 0;
+      transition: all 0.2s;
+    }
+
+    .proj-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .proj-tag {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      border-radius: 2px;
+      background: var(--accent-glow);
+      color: var(--accent-light);
+      border: 1px solid var(--accent-border);
+    }
+
+    .proj-title {
+      font-family: var(--mono);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+
+    .proj-subtitle {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .proj-desc {
+      font-size: 0.8rem;
+      color: var(--text-mid);
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+
+    .proj-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .proj-stack-item {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    .proj-stack-item::after {
+      content: '·';
+      margin-left: 0.4rem;
+    }
+
+    .proj-stack-item:last-child::after { content: ''; }
+
+    /* empty state */
+    .projects-empty {
+      grid-column: 1 / -1;
+      background: var(--bg-card);
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      padding: 3.5rem 2rem;
+      text-align: center;
+    }
+
+    .projects-empty-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      opacity: 0.35;
+    }
+
+    .projects-empty p {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+    }
+
+    .projects-empty span {
+      display: block;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+      opacity: 0.6;
+    }
+
+    /* ─── CONTATO ─── */
+    .contato-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 520px;
+    }
+
+    .contato-link {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      padding: 1.15rem 1.4rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      text-decoration: none;
+      color: var(--text-mid);
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+
+    .contato-link:hover {
+      border-color: var(--accent);
+      color: var(--accent-light);
+      background: rgba(37, 99, 235, 0.05);
+    }
+
+    .contato-link svg {
+      flex-shrink: 0;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .contato-link:hover svg { color: var(--accent-light); }
+
+    .link-info { display: flex; flex-direction: column; }
+
+    .link-label {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      margin-bottom: 0.15rem;
+    }
+
+    .link-value { font-size: 0.82rem; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .footer-text {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-accent {
+      background: linear-gradient(135deg, var(--accent-light), #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up { animation: fadeUp 0.65s ease forwards; opacity: 0; }
+    .d1 { animation-delay: 0.05s; }
+    .d2 { animation-delay: 0.18s; }
+    .d3 { animation-delay: 0.32s; }
+    .d4 { animation-delay: 0.46s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      #hero { padding: 7rem 1.5rem 3.5rem; }
+      section { padding: 3.5rem 1.5rem; }
+      .sobre-layout { grid-template-columns: 1fr; }
+      .comp-card { position: static; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
+      .divider-wrap { padding: 0 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-logo">arthur<span>.</span>nina</span>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow fade-up d1">Portfólio · Data Analytics</div>
+      <h1 class="fade-up d2">
+        Insights que<br>
+        <em>Movem o Negócio.</em>
+      </h1>
+      <p class="hero-sub fade-up d3">
+        Olá, sou Arthur — <strong>Analista de Dados</strong> com experiência em projetos de infraestrutura e engenharia, atuando em áreas tão distintas quanto financeiro, RH, offshore e meio ambiente. Trabalho com Python, SQL e Power BI para transformar dados em <strong>decisões acionáveis</strong> — e estou em transição ativa para Ciência de Dados.
+      </p>
+      <div class="hero-actions fade-up d4">
+        <a href="https://github.com/arthurNdev" target="_blank" class="btn btn-primary">GitHub →</a>
+        <a href="https://www.linkedin.com/in/arthur-nina/" target="_blank" class="btn btn-ghost">LinkedIn →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-wrap"><div class="divider"></div></div>
+
+  <!-- SOBRE -->
+  <section id="sobre">
+    <div class="section-tag">sobre</div>
+    <h2>Quem sou eu</h2>
+    <div class="sobre-layout">
+
+      <div class="comp-card">
+        <div class="comp-card-title">Competências</div>
+        <div class="comp-row"><span class="comp-dot"></span>Análise exploratória e limpeza de dados com Pandas e NumPy.</div>
+        <div class="comp-row"><span class="comp-dot"></span>Dashboards e relatórios estratégicos com Power BI e DAX.</div>
+        <div class="comp-row"><span class="comp-dot"></span>Automação de processos com Power Automate e Power Apps.</div>
+        <div class="comp-row"><span class="comp-dot"></span>Consultas e modelagem de dados com SQL.</div>
+        <div class="comp-row"><span class="comp-dot"></span>Visualização analítica com Matplotlib e Seaborn.</div>
+        <div class="comp-row"><span class="comp-dot"></span>Introdução a modelos preditivos com Scikit-learn.</div>
+      </div>
+
+      <div>
+        <p class="bio">
+          Sou Analista de Dados com trajetória progressiva em projetos de engenharia e infraestrutura, onde tive a oportunidade de colaborar com equipes de áreas muito diferentes — financeiro, RH, departamento pessoal, engenharia civil, offshore e licenciamento ambiental. Cada contexto me ensinou a entender o problema antes de abrir o dado, e foi isso que me tornou um analista mais completo.<br><br>
+          Hoje, aplico essa visão cross-funcional em análises que vão além dos números: construo pipelines de dados, automatizo relatórios e entrego dashboards que realmente apoiam quem decide. <strong>Em transição ativa para Ciência de Dados</strong>, aprofundando estatística aplicada, Machine Learning e engenharia de features.
+        </p>
+
+        <div class="stack-label">Stack & ferramentas</div>
+        <div class="chips">
+          <span class="chip">Python</span>
+          <span class="chip">SQL</span>
+          <span class="chip">Power BI</span>
+          <span class="chip">DAX</span>
+          <span class="chip">Pandas</span>
+          <span class="chip">NumPy</span>
+          <span class="chip">Matplotlib</span>
+          <span class="chip">Seaborn</span>
+          <span class="chip">Scikit-learn</span>
+          <span class="chip">Power Automate</span>
+          <span class="chip">Power Apps</span>
+          <span class="chip">Excel</span>
+          <span class="chip">Git</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider-wrap"><div class="divider"></div></div>
+
+  <!-- PROJETOS -->
+  <section id="projetos">
+    <div class="section-tag">projetos</div>
+    <h2>O que estou construindo</h2>
+    <div class="projects-grid">
+
+      <!-- EMPTY STATE — remova este bloco quando adicionar projetos reais -->
+      <div class="projects-empty">
+        <div class="projects-empty-icon">⬡</div>
+        <p>Projetos em construção</p>
+        <span>Em breve por aqui — análises, dashboards e modelos.</span>
+      </div>
+
+      <!--
+        TEMPLATE PARA ADICIONAR PROJETOS:
+
+        <a href="LINK_DO_REPO" target="_blank" class="project-card">
+          <span class="proj-arrow">➦</span>
+          <div class="proj-tags">
+            <span class="proj-tag">Área</span>
+            <span class="proj-tag">Técnica</span>
+          </div>
+          <div class="proj-title">Título do projeto</div>
+          <div class="proj-subtitle">Uma linha que resume o diferencial.</div>
+          <p class="proj-desc">Descrição curta do problema, abordagem e resultado.</p>
+          <div class="proj-stack">
+            <span class="proj-stack-item">Python</span>
+            <span class="proj-stack-item">Pandas</span>
+            <span class="proj-stack-item">Power BI</span>
+          </div>
+        </a>
+      -->
+
+    </div>
+  </section>
+
+  <div class="divider-wrap"><div class="divider"></div></div>
+
+  <!-- CONTATO -->
+  <section id="contato">
+    <div class="section-tag">contato</div>
+    <h2>Vamos conversar</h2>
+    <div class="contato-links">
+
+      <a href="https://www.linkedin.com/in/arthur-nina/" target="_blank" class="contato-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+          <rect x="2" y="9" width="4" height="12"/>
+          <circle cx="4" cy="4" r="2"/>
+        </svg>
+        <div class="link-info">
+          <span class="link-label">LinkedIn</span>
+          <span class="link-value">linkedin.com/in/arthur-nina</span>
+        </div>
+      </a>
+
+      <a href="mailto:arthurnina.dev@gmail.com" class="contato-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        <div class="link-info">
+          <span class="link-label">E-mail</span>
+          <span class="link-value">arthurnina.dev@gmail.com</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/arthurNdev" target="_blank" class="contato-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+        </svg>
+        <div class="link-info">
+          <span class="link-label">GitHub</span>
+          <span class="link-value">github.com/arthurNdev</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <div class="divider-wrap"><div class="divider"></div></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-text">© 2026 <span class="footer-accent">Arthur Nina</span> — Data Analytics</span>
+    <span class="footer-text">feito com <span class="footer-accent">dados + café ☕︎</span></span>
+  </footer>
+
+</body>
+</html>
