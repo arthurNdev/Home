@@ -20,7 +20,7 @@ Atuo com automação de processos, análise estatística de resultados, modelage
 
 Minha experiência passa por diversas áreas de negócio, como: financeiro, RH, departamento pessoal, engenharia civil, offshore, ambiental, social. Cada contexto exigiu uma forma diferente de analisar o dado e foi isso que me tornou um analista mais completo.
 
-Atualmente em transição ativa para Ciência de Dados — estudando estatística aplicada, Machine Learning e engenharia de features.
+Atualmente em transição ativa para Ciência de Dados, estudando estatística aplicada, Machine Learning e engenharia de features.
 
 ---
 
